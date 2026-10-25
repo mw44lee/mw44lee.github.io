@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GBP Store Ops Board — Minwoo Lee</title>
+<meta name="description" content="GBP Store Ops Board — Minwoo Lee">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="../../../style.css">
+</head><body>
+<header class="top"><div class="wrap"><a class="logo" href="../../../en/">Minwoo Lee</a><nav><a href="../../../en/" class="">About</a><a href="../../../en/projects/" class="on">Projects</a><a href="../../../en/weekly-review/" class="">Weekly Review</a></nav>
+<a class="lang" href="../../../projects/gbp/">한국어</a></div></header>
+<main class="wrap"><p><a href="../">← All projects</a></p><section class="hero"><p class="kicker">Project</p><h1>GBP Store Ops Board</h1><p class="headline">One board for multi-country stores&#x27; Google Business Profiles — auto issue alerts and AI review replies</p><div class="tags"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">TypeScript</span><span class="tag">Node.js(Express)</span><span class="tag">Prisma</span><span class="tag">SQLite</span><span class="tag">Claude API</span><span class="tag">i18n</span></div><dl class="meta"><dt>Role</dt><dd>Planning and data design; full-stack build with AI agents (to learn full-stack architecture)</dd><dt>Period</dt><dd>2026-09</dd></dl><p><a href="https://github.com/mw44lee/gbp-dashboard" target="_blank" rel="noopener">github.com/mw44lee/gbp-dashboard</a></p></section><div class="shots"><img src="../../../projects/gbp/01.png" alt="GBP Store Ops Board" loading="lazy"></div><h2>Problem</h2>
+<ul><li>For global retail stores, the Google Business Profile (GBP) is the first storefront. Yet issues such as falling ratings, review spikes, closure flags and stale cover photos have to be checked store by store.</li><li>Reviews from many countries arrive in different languages, which makes them hard for headquarters to scan.</li></ul>
+<h2>Solution</h2>
+<ul><li>Each store's visibility and action metrics, products and reviews are on <strong>one screen</strong>.</li><li><strong>Rule-based detection</strong> flags issues such as rating drops, review spikes and closures in an alert feed. Each store is rated healthy, warning or critical.</li><li>Reviews can be <strong>translated</strong> into any language, whatever the original.</li><li><strong>AI drafts replies</strong> that follow brand guidelines.</li></ul>
+<h2>What I did</h2>
+<ul><li>Designed the conversion script that maps a real multi-country store dataset to the app schema.</li><li>Put the issue rules in one place (the alerts service), so the board, the alerts and future notification jobs all use the same thresholds.</li><li>Built the full stack (frontend, backend, database, AI integration) hands-on with an AI agent, to learn the architecture end to end.</li></ul>
+<h2>Technology &amp; architecture</h2>
+<ul><li>Backend: Node.js, Express, Prisma and SQLite</li><li>Frontend: React and Vite (<code>/api</code> is proxied to the backend)</li><li>AI: translation and reply drafts run on the server through the Claude API. The key stays on the server, and the app runs end to end with mock replies if there is no key.</li><li>The UI language (EN/KO) and review translation (AI, cached) use separate paths.</li></ul>
+<h2>About the data</h2>
+<ul><li>Store names, addresses, ratings, review counts and operating status come from the real dataset.</li><li>Performance metrics such as views and clicks are simulated from ratings and review counts.</li><li>Products and sample reviews are placeholders.</li></ul>
+<h2>Next</h2>
+<ul><li>Connect an agent that collects store data live through the GBP or Places API (<code>POST /api/import/gbp-urls</code>)</li><li>Integrate real product and review data</li></ul></main>
+<footer><div class="wrap">© Minwoo Lee · Updated 2026-10-25</div></footer>
+</body></html>

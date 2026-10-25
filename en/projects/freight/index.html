@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digital Freight Brokerage — Minwoo Lee</title>
+<meta name="description" content="Digital Freight Brokerage — Minwoo Lee">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="../../../style.css">
+</head><body>
+<header class="top"><div class="wrap"><a class="logo" href="../../../en/">Minwoo Lee</a><nav><a href="../../../en/" class="">About</a><a href="../../../en/projects/" class="on">Projects</a><a href="../../../en/weekly-review/" class="">Weekly Review</a></nav>
+<a class="lang" href="../../../projects/freight/">한국어</a></div></header>
+<main class="wrap"><p><a href="../">← All projects</a></p><section class="hero"><p class="kicker">Project</p><h1>Digital Freight Brokerage</h1><p class="headline">Instant pricing and first-accept matching between shippers and truck owners</p><div class="tags"><span class="tag">Next.js</span><span class="tag">PostgreSQL (Supabase-compatible)</span><span class="tag">PGlite</span><span class="tag">TypeScript</span><span class="tag">Flutter (planned)</span><span class="tag">Funding simulator</span></div><dl class="meta"><dt>Role</dt><dd>Business planning, requirements and funding plan; built with AI agents (vibe coding)</dd><dt>Period</dt><dd>2026-10 ~</dd></dl></section><h2>Problem</h2>
+<ul><li>Freight brokerage still runs on phone calls and group chats. Dispatch is slow, rates are inconsistent and truck owners are paid late.</li><li>Small brokers rely on manual work, so they find it hard to scale.</li></ul>
+<h2>Solution</h2>
+<ul><li><strong>Instant pricing:</strong> a shipper's order is priced on the spot. B2B shippers use contract rates.</li><li><strong>Sequential offers:</strong> the order goes to up to five qualified truck owners in turn. <strong>The first to accept gets the contract immediately.</strong></li><li><strong>Completion and payout:</strong><ul><li>Drop-off photos and a signature create an electronic proof of delivery, and the shipper leaves a satisfaction rating.</li><li>The truck owner receives the fare minus the fee (8% less a satisfaction incentive). Payouts run at 18:00 the same day or 09:00 the next day.</li></ul></li><li><strong>When nobody accepts:</strong> a company-run truck takes the job, so no order goes unserved.</li></ul>
+<h2>What I did</h2>
+<ul><li>Defined the business rules, fee and incentive structure, and payout cycle from a brokerage practice guide.</li><li>Built a funding simulation from one-off costs, monthly costs and revenue assumptions to size the required capital.</li><li>Set up a requirements system that marks undecided items as "provisional" or "open" instead of guessing.</li><li>Built the database, business rules and automated checks with an AI agent.</li></ul>
+<h2>Technology &amp; architecture</h2>
+<ul><li>Business rules (offer order, accept race, fee calculation, payout batches) are PostgreSQL functions. They pass 65 automated checks.</li><li>The structure is Supabase-compatible and runs on PGlite on a PC, so testing needs no installation.</li><li>The admin system and shipper web app use Next.js, and the driver app will use Flutter.</li></ul>
+<h2>Next</h2>
+<ul><li>Admin system, shipper web app and document guide (stage 4, in progress)</li><li>Truck-owner app (Flutter)</li><li>Integrated testing on phones</li></ul><h2>Progress</h2><p class="note">Last update 2026-10-22</p><div class="tablewrap"><table><thead><tr><th>단계</th><th>내용</th><th>상태</th></tr></thead><tbody><tr><td>1</td><td>요구사항 정의서, 자금 계획</td><td>✅</td></tr><tr><td>2</td><td>GitHub 비공개 저장소</td><td>✅</td></tr><tr><td>3</td><td>DB·업무 규칙·자동 검증</td><td>✅ 86개 항목 통과</td></tr><tr><td>4</td><td>관리 시스템 + 화주 웹앱 + 서류 안내</td><td>✅</td></tr><tr><td>5</td><td>차주 앱 (Flutter)</td><td>✅ 앱 테스트 7개 · [carrier_app/README.md](carrier_app/README.md)</td></tr><tr><td>6</td><td>통합 시험 (휴대폰)</td><td>다음</td></tr></tbody></table></div></main>
+<footer><div class="wrap">© Minwoo Lee · Updated 2026-10-25</div></footer>
+</body></html>
